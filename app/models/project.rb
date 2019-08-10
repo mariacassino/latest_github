@@ -1,17 +1,11 @@
 class Project < ApplicationRecord
   
-  include ActiveModel::Serializers::JSON
-
-  attr_accessor :name, :owner, :url, :stars
-
-  def attributes=(hash)
-    hash.each do |key, value|
-      send("#{key}=", value)
+  def self.save_projects projects
+    projects[1..10].each do |project|
+      project_hash = project.as_json(only: ["name", "url", "stargazers_count"])
+      new_record = Project.create
+      new_record.update_columns(project_hash)
     end
   end
-
-  def attributes
-    {'name' => nil, 'owner' => nil, 
-      'url' => nil, 'stars' => nil}
-  end 
+  
 end
