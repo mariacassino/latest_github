@@ -111,6 +111,6 @@ namespace :save do
       new_record = Project.create(name: project_hash["name"], url: project_hash["url"], owner: project_hash["owner"]["login"], stargazers_count: project_hash["stargazers_count"] )
     end
     puts "done!"
-    puts "Projects in database: #{Project.all.size}"
+    puts "Projects in database: #{Project.count}"
   end
 end
