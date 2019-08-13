@@ -82,7 +82,6 @@ namespace :get do
         next if total_count == 0
         # round up to account for pages that are only partially filled w/ results
         total_pages = (total_count / 100.to_f).ceil
-        # puts "\n\n"
         puts "\n\n#{total_count} #{license} projects with #{star_range} stars, on #{total_pages} pages"
         page_counter = 0
         # loop iterates through each page in that star increment and pushes project into `projects` array
