@@ -48,6 +48,7 @@ namespace :get do
     projects = []
     response = HTTParty.get("#{@repos_base}?q=stars:1..2000+#{@languages}+#{@licenses}+fork:false+pushed:#{@date}&per_page=100?client_id=#{@client_id}&client_secret=#{@client_secret}", headers: @headers)
     all_projects_count = response.parsed_response["total_count"]
+    puts "Preparing to get #{all_projects_count} total projects:"
     # Github's API won't return more than 1000 results in a query (10 pages of results w/ 100 results per page, in this case),
     # so I broke the requests up into increments of pages to iterate through;
     # there are too many projects <= 5 stars to paginate them all within the allotted 10 pages, and a large portion of
