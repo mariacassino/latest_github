@@ -1,5 +1,15 @@
 # latest_github
-Project for Adwerx; uses Github API to search for projects that were updated today and within a given set of parameters.
+Uses Github's Search API to search for projects that meet all of the following requirements:
+
+- were updated within the last day
+- have between 1 and 2000 stars
+- are not forks
+- specify one of the following OSS licenses:
+  - apache-2.0
+  - gpl
+  - lgpl
+  - mit
+- use ruby or javascript
 
 Live app- https://hidden-lake-68826.herokuapp.com/
 
